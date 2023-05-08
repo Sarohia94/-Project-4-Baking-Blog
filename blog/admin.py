@@ -27,12 +27,12 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-@admin.register(Recipe)  # port 8000 not found error
+@admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title', 'content']
-    prepopulated_fields = {'slug': ('title',)}
-    list_filter = ('status', 'title', 'created_on')
+    list_display = ('recipe_name', 'slug', 'status', 'created_on')
+    search_fields = ['recipe_name', 'method', 'ingredients']
+    prepopulated_fields = {'slug': ('recipe_name',)}
+    list_filter = ('status', 'recipe_name', 'created_on')
     actions = ['approve_recipe']
 
     def approve_recipe(self, request, queryset):
