@@ -54,7 +54,7 @@ class Recipe(models.Model):
     )
     featured_image = CloudinaryField('image', default='placeholder')
     description = models.TextField(max_length=500, blank=True)
-    serves = models.IntegerField(null=True, blank=True)
+    serves = models.IntegerField()
     prep_time = models.CharField(max_length=15)
     baking_time = models.CharField(max_length=15)
     ingredients = models.CharField(max_length=250)
