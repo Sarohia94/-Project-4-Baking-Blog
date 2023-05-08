@@ -47,12 +47,13 @@ class Comment(models.Model):
 
 
 class Recipe(models.Model):
-    recipe_name = models.CharField(max_length=80, verbose_name=('Recipe name'))
+    recipe_name = models.CharField(max_length=80)
+    slug = models.SlugField(unique=True, max_length=80)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='recipe_posts'
     )
+    featured_image = CloudinaryField('image', default='placeholder')
     description = models.TextField(max_length=500, blank=True)
-    slug = models.SlugField(unique=True, max_length=80)
     serves = models.IntegerField(blank=True)
     prep_time = models.CharField(max_length=15)
     baking_time = models.CharField(max_length=15)

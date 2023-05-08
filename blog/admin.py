@@ -21,6 +21,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
     search_fields = ('name', 'email', 'body')
+    summernote_fields = ('content')
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
@@ -28,7 +29,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 @admin.register(Recipe)
-class RecipeAdmin(admin.ModelAdmin):
+class RecipeAdmin(SummernoteModelAdmin):
     list_display = ('recipe_name', 'slug', 'status', 'created_on')
     search_fields = ['recipe_name', 'method', 'ingredients']
     prepopulated_fields = {'slug': ('recipe_name',)}
