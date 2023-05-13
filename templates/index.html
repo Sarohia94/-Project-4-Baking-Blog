@@ -18,7 +18,7 @@
                     <div class="small text-muted">January 1, 2023</div>
                     <h2 class="card-title">About Let's Bake!</h2>
                     <p class="card-text">This is blog created to share yummy recipes and love for baking.</p>
-                    <a class="btn btn-primary" href="#!">Read more →</a>
+                    <a class="btn btn-primary" href="">Read more →</a>
                 </div>
             </div>
         </div>
@@ -50,9 +50,9 @@
                             <div class="small text-muted">{{ post.created_on}}</div>
                             <h2 class="card-title h4">{{ post.title }}</h2>
                             <p class="card-text">{{ post.excerpt }}</p>
-                            <a class="btn btn-primary" href="">Read more →</a>
+                            <a class="btn btn-primary" href="{% url 'post_detail' post.slug %}">Read more →</a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="fa-regular fa-heart fa-beat"></i>
                                 {{ post.number_of_likes }}</p>
                         </div>
                     </div>
