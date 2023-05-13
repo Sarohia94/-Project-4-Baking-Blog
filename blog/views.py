@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Post
+from .models import Post, Recipe
 
 
 class PostList(generic.ListView):
@@ -24,3 +24,10 @@ class PostDetail(View):
                 "liked": liked,
             }
         return render(request, "post_detail.html", context)
+
+
+class RecipeList(generic.ListView):
+    model = Recipe
+    queryset = Recipe.objects.filter(status=1).order_by("-created_on")
+    template_name = "recipes.html"
+    paginate_by = 4
