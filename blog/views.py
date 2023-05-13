@@ -31,3 +31,17 @@ class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1).order_by("-created_on")
     template_name = "recipes.html"
     paginate_by = 4
+
+
+class RecipeDetail(View):
+    def get(self, request, slug):
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        liked = False
+        if recipe.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        context = {
+                "recipe": recipe,
+                "liked": liked,
+            }
+        return render(request, "recipe_detail.html", context)

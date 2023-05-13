@@ -36,7 +36,7 @@
                             <div class="small text-muted">{{ recipe.created_on}}</div>
                             <h2 class="card-title h4">{{ recipe.recipe_name }}</h2>
                             <p class="card-text">{{ recipe.descripton }}</p>
-                            <a class="btn btn-primary" href="">Read more →</a>
+                            <a class="btn btn-primary" href="{% url 'recipe_detail' recipe.slug %}">Read more →</a>
                             <hr />
                             <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="fa-regular fa-heart fa-beat"></i>
                                 {{ recipe.number_of_likes }}</p>
