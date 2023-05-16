@@ -25,15 +25,22 @@
     <div class="row">
         <div class="col card mb-4 mt-4 top-50">
             <div class="card-body">
+                <strong>Serves:</strong>
                 <p class="">{{ recipe.serves }}</p>
+                <strong>Prep-time:</strong>
                 <p class="">{{ recipe.prep_time }}</p>
+                <strong>Baking-time:</strong>
                 <p class="">{{ recipe.baking_time }}</p>
+                <strong>Ingredients:</strong>
                 <p class="">{{ recipe.ingredients }}</p>
+                <strong>Special equipment:</strong>
                 <p class="">{{ recipe.special_equipment }}</p>
+                <strong>Bakers tip!:</strong>
                 <p class="">{{ recipe.bakers_tip }}</p>
                 <!-- The recipe content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
+                    <strong>Method:</strong>
                     {{ recipe.method | safe }}
                 </p>
                 <div class="row">
