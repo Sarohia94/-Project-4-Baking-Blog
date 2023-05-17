@@ -35,7 +35,7 @@
                 <p class="">{{ recipe.ingredients }}</p>
                 <strong>Special equipment:</strong>
                 <p class="">{{ recipe.special_equipment }}</p>
-                <strong>Bakers tip!:</strong>
+                <strong>Bakers tip!</strong>
                 <p class="">{{ recipe.bakers_tip }}</p>
                 <!-- The recipe content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
@@ -48,7 +48,7 @@
                     <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}
-                            <form class="d-inline" action="" method="POST">
+                            <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
                                 <button type="submit" name="blogpost_id" value="{{recipe.slug}}" class="btn-like"><i class="fa-solid fa-heart"></i></button>
