@@ -30,9 +30,9 @@ class Post(models.Model):
         return self.likes.count()
 
 
-class Comment(models.Model):
+class PostComment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                             related_name='comments')
+                             related_name='post_comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -43,7 +43,10 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"PostComment {self.body} by {self.name}"
+
+    def number_of_post_comments(self):
+        return self.post_comments.count()
 
 
 class Recipe(models.Model):
@@ -75,3 +78,22 @@ class Recipe(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+
+class RecipeComment(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE,
+                               related_name='recipe_comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"RecipeComment {self.body} by {self.name}"
+
+    def number_of_recipe_comments(self):
+        return self.recipe_comments.count()

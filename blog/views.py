@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Recipe
-from .forms import CommentForm
+from .forms import PostCommentForm, RecipeCommentForm
 
 
 class PostList(generic.ListView):
@@ -16,41 +16,42 @@ class PostDetail(View):
     def get(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by("-created_on")
+        post_comments = post.post_comments.filter(approved=True).order_by(
+            "-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
         context = {
                 "post": post,
-                "comments": comments,
+                "post_comments": post_comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "post_comment_form": PostCommentForm()
             }
         return render(request, "post_detail.html", context)
 
     def post(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by("-created_on")
+        post_comments = post.post_comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.save()
+        post_comment_form = PostCommentForm(data=request.POST)
+        if post_comment_form.is_valid():
+            post_comment_form.instance.email = request.user.email
+            post_comment_form.instance.name = request.user.username
+            post_comment = post_comment_form.save(commit=False)
+            post_comment.post = post
+            post_comment.save()
         else:
-            comment_form = CommentForm()
+            post_comment_form = PostCommentForm()
         context = {
                 "post": post,
-                "comments": comments,
+                "post_comments": post_comments,
                 "commented": True,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "post_comment_form": PostCommentForm()
             }
         return render(request, "post_detail.html", context)
 
@@ -66,13 +67,42 @@ class RecipeDetail(View):
     def get(self, request, slug):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
+        recipe_comments = recipe.recipe_comments.filter(approved=True).order_by("-created_on")
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
         context = {
                 "recipe": recipe,
+                "recipe_comments": recipe_comments,
+                "commented": False,
                 "liked": liked,
+                "recipe_comment_form": RecipeCommentForm()
             }
+        return render(request, "recipe_detail.html", context)
+
+    def post(self, request, slug):
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        recipe_comments = recipe.recipe_comments.filter(approved=True).order_by("-created_on")
+        liked = False
+        if recipe.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        recipe_comment_form = RecipeCommentForm(data=request.POST)
+        if recipe_comment_form.is_valid():
+            recipe_comment_form.instance.email = request.user.email
+            recipe_comment_form.instance.name = request.user.username
+            recipe_comment = recipe_comment_form.save(commit=False)
+            recipe_comment.recipe = recipe
+            recipe_comment.save()
+        else:
+            recipe_comment_form = RecipeCommentForm()
+        context = {
+            "recipe": recipe,
+            "recipe_comments": recipe_comments,
+            "commented": False,
+            "liked": liked,
+            "recipe_comment_form": RecipeCommentForm()
+        }
         return render(request, "recipe_detail.html", context)
 
 
