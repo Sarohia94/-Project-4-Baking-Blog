@@ -47,6 +47,11 @@
                         <a class="nav-link" aria-label="Login to account" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'user-page' %}" aria-label="Go to the user page"><i class="fa-solid fa-user"></i> {{ user.username }}</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.contrib.auth.decorators import login_required
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Recipe
@@ -33,7 +34,8 @@ class PostDetail(View):
     def post(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        post_comments = post.post_comments.filter(approved=True).order_by("-created_on")
+        post_comments = post.post_comments.filter(approved=True).order_by(
+            "-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -67,7 +69,8 @@ class RecipeDetail(View):
     def get(self, request, slug):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        recipe_comments = recipe.recipe_comments.filter(approved=True).order_by("-created_on")
+        recipe_comments = recipe.recipe_comments.filter(
+            approved=True).order_by("-created_on")
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -83,7 +86,8 @@ class RecipeDetail(View):
     def post(self, request, slug):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        recipe_comments = recipe.recipe_comments.filter(approved=True).order_by("-created_on")
+        recipe_comments = recipe.recipe_comments.filter(
+            approved=True).order_by("-created_on")
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -126,3 +130,21 @@ class RecipeLike(View):
         else:
             recipe.likes.add(request.user)
         return HttpResponseRedirect(reverse("recipe_detail", args=[slug]))
+
+
+class User(generic.ListView):
+    model = Post
+    template_name = "user_page.html"
+
+
+class AddPost(generic.ListView):
+    model = Post
+    template_name = "add_post.html"
+
+
+@login_required
+def add_post_form(request):
+    add_post_form = forms.AddPostForm()
+    if request.method == 'POST':
+        context = {'add_post_form': add_post_form}
+    return render(request, 'add_post.html', context)
