@@ -77,6 +77,11 @@
             </div>
         </div>
     </div>
+    {% if request.user == recipe.author %} 
+    <div class="text-center">
+        <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-primary w-25">Delete Recipe</a>
+    </div>
+    {% endif %}
     <div class="row">
         <div class="col">
             <hr>
