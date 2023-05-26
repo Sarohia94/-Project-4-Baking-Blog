@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
+from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from .models import Post, Recipe
-from .forms import PostCommentForm, RecipeCommentForm
+from .forms import PostCommentForm, RecipeCommentForm, RecipeForm
+from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
@@ -60,14 +62,14 @@ class PostDetail(View):
 
 class RecipeList(generic.ListView):
     model = Recipe
-    queryset = Recipe.objects.filter(status=1).order_by("-created_on")
+    queryset = Recipe.objects.all().order_by("-created_on")
     template_name = "recipes.html"
     paginate_by = 4
 
 
 class RecipeDetail(View):
     def get(self, request, slug):
-        queryset = Recipe.objects.filter(status=1)
+        queryset = Recipe.objects.all()
         recipe = get_object_or_404(queryset, slug=slug)
         recipe_comments = recipe.recipe_comments.filter(
             approved=True).order_by("-created_on")
@@ -84,7 +86,7 @@ class RecipeDetail(View):
         return render(request, "recipe_detail.html", context)
 
     def post(self, request, slug):
-        queryset = Recipe.objects.filter(status=1)
+        queryset = Recipe.objects.all()
         recipe = get_object_or_404(queryset, slug=slug)
         recipe_comments = recipe.recipe_comments.filter(
             approved=True).order_by("-created_on")
@@ -133,18 +135,17 @@ class RecipeLike(View):
 
 
 class User(generic.ListView):
-    model = Post
+    model = Recipe
     template_name = "user_page.html"
 
 
-class AddPost(generic.ListView):
-    model = Post
-    template_name = "add_post.html"
+class AddRecipe(LoginRequiredMixin, CreateView):
+    model = Recipe
+    form_class = RecipeForm
+    template_name = "add_recipe.html"
+    success_url = "/recipes/"
 
-
-@login_required
-def add_post_form(request):
-    add_post_form = forms.AddPostForm()
-    if request.method == 'POST':
-        context = {'add_post_form': add_post_form}
-    return render(request, 'add_post.html', context)
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.slug = slugify(form.instance.recipe_name)
+        return super(AddRecipe, self).form_valid(form)

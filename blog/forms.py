@@ -14,21 +14,37 @@ class RecipeCommentForm(forms.ModelForm):
         fields = ('body',)
 
 
-class AddPostForm(forms.ModelForm):
+class RecipeForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = (
-            "title",
-            "excerpt",
-            "content",
-        )
+        model = Recipe
 
+        readonly_fields = [
+            'slug',
+            'author',
+        ]
 
-class UpdatePostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = (
-            "title",
-            "excerpt",
-            "content",
-        )
+        fields = [
+            'recipe_name',
+            'featured_image',
+            'description',
+            'serves',
+            'prep_time',
+            'baking_time',
+            'ingredients',
+            'special_equipment',
+            'method',
+            'bakers_tip',
+        ]
+
+        labels = {
+            'recipe_name': 'Recipe Title',
+            'featured_image': 'Recipe Image',
+            'description': 'Description',
+            'serves': 'Serves',
+            'prep_time': 'Prep Time',
+            'baking_time': 'Baking Time',
+            'ingredients': 'Ingredients',
+            'special_equipment': 'Special Equipment',
+            'method': 'Method',
+            'bakers_tip': 'BAKERS TIP',
+        }
