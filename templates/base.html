@@ -4,55 +4,94 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A blog for those passionate about baking!">
+    <meta name="keywords" content="blog, baking, recipes, cakes, bake, let's bake">
+    <meta name="author" content="Developer, Amritpreet Sarohia">
+    
+    <!-- Blog title -->
     <title>Let's Bake!</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favcion/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favcion/site.webmanifest' %}">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- Scripts -->
+    <!-- Placed in the head so they load as early as possible -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
-    <!-- Responsive navbar-->
+
+    <!-- Responsive navbar -->
     {% with request.resolver_match.url_name as url_name %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-color bg-dark">
 
         <div class="container">
 
-            <a class="navbar-brand" href="#!">Let's Bake!</a>
+            <a class="navbar-brand" href="{% url 'home'%}" id="title">Let's Bake! </a>  
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse fw-semibold" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link {% if url_name == 'home' %}active{% endif %}" aria-current="page" aria-label="Go to home page" href="{% url 'home' %}">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'home' %}active{% endif %}"
+                            aria-current="page" aria-label="Go to home page" href="{% url 'home'%}"> Home
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link {% if url_name == 'recipes' %}active{% endif %}" aria-label="Go to recipes page" href="{% url 'recipes' %}">Recipes</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'recipes' %}active{% endif %}"
+                            aria-label="Go to recipes page" href="{% url 'recipes' %}">Recipes
+                        </a>
+                    </li>
+
+                    <!-- Account Registration -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'account_logout' %}active{% endif %}" aria-label="Logout from account" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% if url_name == 'account_logout' %}active{% endif %}"
+                            aria-label="Logout from account" href="{% url 'account_logout' %}">Logout
+                        </a>
                     </li>
+
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'account_signup' %}active{% endif %}" aria-label="Register an account" href="{% url 'account_signup' %}">Sign Up</a>
+                        <a class="nav-link {% if url_name == 'account_signup' %}active{% endif %}"
+                            aria-label="Register an account" href="{% url 'account_signup' %}">Sign Up
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'account_login' %}active{% endif %}" aria-label="Login to account" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if url_name == 'account_login' %}active{% endif %}"
+                            aria-label="Login to account" href="{% url 'account_login' %}">Login
+                        </a>
                     </li>
                     {% endif %}
+
+                    <!-- User page -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'user_page' %}active{% endif %}" aria-current="page" href="{% url 'user_page' %}" aria-label="Go to the user page"><i class="fa-solid fa-user"></i> {{ user.username }}</a>
+                        <a class="nav-link {% if url_name == 'user_page' %}active{% endif %}" aria-current="page"
+                            href="{% url 'user_page' %}" aria-label="Go to the user page">
+                            <i class="fa-solid fa-user"></i> {{ user.username }}
+                        </a>
                     </li>
                     {% endif %}
+
                 </ul>
             </div>
 
@@ -61,71 +100,15 @@
     </nav>
     {% endwith %}
 
-    <!-- Page header with logo and tagline-->
-    <header class="py-5 bg-light border-bottom mb-4">
-        <div class="container">
+    <!-- Page header with background image logo & tagline -->
+    <header class="py-5 image mb-4">
+        <div class="container" id="cover-text">
             <div class="text-center my-5">
-                <h1 class="fw-bolder">Let's Bake!</h1>
-                <p class="lead mb-0">A blog for those passionate about baking</p>
+                <h1 class="fw-bolder" id="title">Let's Bake!</h1>
+                <p class="fw-semibold mb-0" id="tagline">A blog for those passionate about baking</p>
             </div>
         </div>
     </header>
-
-    <!-- <aside>
-
-        <div class="col-md-4"> -->
-
-            <!-- Search widget-->
-            <!-- <div class="card mb-4">
-
-                <div class="card-header">Search</div>
-
-                <div class="card-body">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Enter search term..."
-                            aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                    </div>
-                </div>
-
-            </div> -->
-
-            <!-- Categories widget-->
-            <!-- <div class="card mb-4">
-
-                <div class="card-header">Categories</div>
-
-                <div class="card-body">
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Category1</a></li>
-                                <li><a href="#!">Category2</a></li>
-                                <li><a href="#!">Category2</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div> -->
-
-            <!-- Side widget-->
-            <!-- <div class="card mb-4">
-
-                <div class="card-header">Side Widget</div>
-
-                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use,
-                    and
-                    feature the Bootstrap 5 card component!</div>
-            </div>
-
-        </div>
-
-    </aside> -->
 
     <main class="flex-shrink-0 main-bg">
 
@@ -134,42 +117,45 @@
         {% endblock content %}
 
     </main>
-    
-    <!-- Footer-->
+
+    <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
             <div class="text-center py-4 align-items-center text-white">
+
                 <p>Follow me on social media</p>
-                <a href="https://facebook.com/" target="_blank" class="btn btn-primary m-1" rel="noopener"
-                    aria-label="Connect with us via Facebook (opens in a new tab)"><i
-                        class="fa-brands fa-facebook-f"></i></a>
 
-                <a href="https://instagram.com/" target="_blank" class="btn btn-primary m-1" rel="noopener"
-                    aria-label="Connect with us via Instagram (opens in a new tab)"><i
-                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com/" target="_blank" class="btn m-1" rel="noopener"
+                    aria-label="Connect with us via Facebook (opens in a new tab)">
+                    <i class="fa-brands fa-facebook-f fa-2x"></i>
+                </a>
 
-                <a href="https://twitter.com/" target="_blank" class="btn btn-primary m-1" rel="noopener"
-                    aria-label="Connect with us via Twitter (opens in a new tab)"><i
-                        class="fa-brands fa-twitter"></i></a>
+                <a href="https://instagram.com/" target="_blank" class="btn m-1" rel="noopener"
+                    aria-label="Connect with us via Instagram (opens in a new tab)">
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
 
-                <a href="https://youtube.com/" target="_blank" class="btn btn-primary m-1" rel="noopener"
-                    aria-label="Connect with us via YouTube (opens in a new tab)"><i
-                        class="fa-brands fa-youtube"></i></a>
+                <a href="https://twitter.com/" target="_blank" class="btn m-1" rel="noopener"
+                    aria-label="Connect with us via Twitter (opens in a new tab)">
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+
+                <a href="https://youtube.com/" target="_blank" class="btn m-1" rel="noopener"
+                    aria-label="Connect with us via YouTube (opens in a new tab)">
+                    <i class="fa-brands fa-youtube fa-2x"></i>
+                </a>
+
             </div>
-            <p class="m-0 text-center text-white">Copyright &copy; 2023 Let's Bake! <i class="fa-solid fa-cookie-bite"></i></p>
+
+            <p class="m-0 text-center text-white">Copyright &copy; 2023 Let's Bake!
+                <i class="fa-solid fa-cookie-bite"></i>
+            </p>
+
         </div>
     </footer>
 
     <!--Font awesome script-->
     <script src="https://kit.fontawesome.com/ce08db8352.js" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
-    </script>
 
 </body>
 
