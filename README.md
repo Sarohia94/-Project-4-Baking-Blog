@@ -1,8 +1,12 @@
 # Let's Bake!
 
-A baking blog.
+Let's Bake is a baking blog developed using Django, Python, HTML, CSS and JavaScript.
 
-[Link to Hangman game]()
+The blog is designed to share the love of baking.  The blog provides general baking relating posts as well as recipes for visitors, which is the core purpose of the blog. 
+
+Registered users have the option to share, edit and delete their own recipes. They can also like and comment on all posts.
+
+[Go to blog website, Let's Bake!]()
 
 ![Game shown on a range of devices](docs/amiresponsive.png)
 
