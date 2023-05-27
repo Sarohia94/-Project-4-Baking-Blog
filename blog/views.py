@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
-from django.views.generic import CreateView, DeleteView
+from django.views.generic import CreateView, DeleteView, UpdateView
 from django.http import HttpResponseRedirect
 from .models import Post, Recipe
 from .forms import PostCommentForm, RecipeCommentForm, RecipeForm
@@ -149,6 +149,16 @@ class AddRecipe(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.recipe_name)
         return super(AddRecipe, self).form_valid(form)
+
+
+class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Recipe
+    form_class = RecipeForm
+    template_name = "edit_recipe.html"
+    success_url = "/recipes/"
+
+    def test_func(self):
+        return self.request.user == self.get_object().author
 
 
 class DeleteRecipe(LoginRequiredMixin, UserPassesTestMixin, DeleteView):

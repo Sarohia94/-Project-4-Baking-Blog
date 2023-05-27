@@ -80,6 +80,7 @@
     {% if request.user == recipe.author %} 
     <div class="text-center">
         <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-primary w-25">Delete Recipe</a>
+        <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-primary w-25">Edit Recipe</a>
     </div>
     {% endif %}
     <div class="row">

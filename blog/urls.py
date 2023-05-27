@@ -1,5 +1,5 @@
 from . import views
-from .views import DeleteRecipe
+from .views import DeleteRecipe, EditRecipe
 from django.urls import path
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path("user_page", views.User.as_view(), name="user_page"),
     path("add_recipe", views.AddRecipe.as_view(), name="add_recipe"),
     path("delete/<slug:slug>/", DeleteRecipe.as_view(), name="delete_recipe"),
+    path("edit/<slug:slug>/", EditRecipe.as_view(), name="edit_recipe"),
 ]
