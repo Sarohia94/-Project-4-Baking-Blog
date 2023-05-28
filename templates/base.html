@@ -110,6 +110,19 @@
         </div>
     </header>
 
+    <!-- Message alert (From Code Institute Blog Walkthrough) -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <main class="flex-shrink-0 main-bg">
 
         {% block content %}
@@ -153,6 +166,15 @@
 
         </div>
     </footer>
+
+    <!-- Message fade (From Code Institute Blog Walkthrough) -->
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 3000);
+    </script>
 
     <!--Font awesome script-->
     <script src="https://kit.fontawesome.com/ce08db8352.js" crossorigin="anonymous"></script>
