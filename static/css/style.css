@@ -12,7 +12,6 @@
  */
 
 /* Google Font @import URL */
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Indie+Flower&family=Source+Serif+Pro:wght@300&display=swap');
 
 :root {
@@ -121,7 +120,7 @@
   letter-spacing: 4px;
   width: 400px;
   height: 200px;
-  background-color: rgba(244, 91, 105, .7);
+  background-color: rgba(14, 177, 210, .5);
   padding: 20px;
 }
 
@@ -3808,6 +3807,8 @@ textarea.form-control-lg {
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
   white-space: nowrap;
+  padding-left: 10px;
+  margin-left: 8px;
 }
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--bs-navbar-brand-hover-color);

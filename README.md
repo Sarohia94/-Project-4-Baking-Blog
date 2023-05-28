@@ -219,26 +219,54 @@ Acceptance Criteria:
 ## Design
 
 ### Colour Scheme
-The termcolor module was used to print colored text.
 
-Bright and bold colors were used throughout the game to draw the users attention for a specific purpose or engagement.
+The colour scheme was taken from [Coolors](https://coolors.co/). 
 
-Color consistancy is used in the below instances:
-* Cyan is used largely when requesting user input.
-* Magenta is used largely when the user's chosen name is called alongside text to draw their attention.
-* Red is used largely when error messages are raised for invalid input.
+It was based on the image used for the [Favicon icon](https://www.pngall.com/wp-content/uploads/5/Yummy-Cupcake-PNG-Picture.png) which I thought was fun and inviting.
+
+The use of these colours have been consistently maintained throughout the website and checked for contrast to allow easy accessibility.
+
+![Colour palette for the Let's Bake blog website](docs/colourpalette.png)
 
 ### Fonts
 
+[Google Fonts](https://fonts.google.com/) were used as below:
+
+* Indie Flower is used for the title.
+* Acme is used for the body of the text. 
+
 ### Imagery
+
+Images used were warm or colourful to fit the theme and intention of the website, which is about love of baking & sharing recipes to engage users to want to make themselves. 
+
+Hero image and placeholder featured image for post was taken from [Pexels](https://www.pexels.com/), the Favicon icon from [PNG All](https://www.pngall.com/) and all recipe images can be found in the credits section.
 
 ### Wireframes
 
+Wireframes were created for destop/laptop, tablet and mobile.
+
+* Home page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_blog_home.png), here for [tablet](docs/wireframes/tablet_blog_home.png) and here for [mobile](docs/wireframes/mobile_blog_home.png).
+
+* Recipe page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_blog_recipe.png), here for [tablet](docs/wireframes/tablet_blog_recipe.png) and here for [mobile](docs/wireframes/mobile_blog_recipe.png).
+
+* Sign up page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_blog_sign_up.png), here for [tablet](docs/wireframes/tablet_blog_sign_up.png) and here for [mobile](docs/wireframes/mobile_blog_sign_up.png).
+
+* Sign in page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_blog_sign_in.png), here for [tablet](docs/wireframes/tablet_blog_sign_in.png) and here for [mobile](docs/wireframes/mobile_blog_sign_in.png).
+
+
+A bootstrap template was used to help format the core blog website. Custom css styling and html was also used.
+
+* [Bootstrap template](https://startbootstrap.com/template/blog-home)
 
 ### Database Model
 
+Principles of object-oriented programming was used throughout this project and Django’s class-based generic views. Django AllAuth was used for user authentication.
 
-![Database Model](docs/databasemodel.png)
+A custom database model was developed as below for recipes.
+
+![Custom database model](docs/custom__model.png)
+
+The custom model was made to incorporate CRUD functionality. This allows registered users and admin to add, edit or delete recipes, both from the live site and from the Django database via the Django admin page.
 
 - - -
 
