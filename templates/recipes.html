@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-8 offset-2 mt-4 text-center">
-            <h1 class="text-color">Recipes</h2>
+            <h1 class="text-color">Recipes</h1>
             <hr>
         </div>
     </div>
@@ -23,9 +23,10 @@
                                 {% if "placeholder" in recipe.featured_image.url %}
                                 <img class="card-img-top"
                                     src="{% static 'images/default_post_image.jpg' %}"
-                                    alt="kneading dough with both hands on wooden table"/>
+                                    alt="kneading dough with both hands on wooden table">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}"
+                                alt="recipe image relating to {{ recipe.recipe_name }}">
                                 {% endif %}
                                 <div class="small text-muted">
                                     <p>Author: {{ recipe.author }}</p>
@@ -34,9 +35,9 @@
                             <h2 class="card-title h4 text-decoration-underline">{{ recipe.recipe_name }}</h2>
                             <p class="card-text">{{ recipe.descripton|truncatechars:100 }}</p>
                             <a class="btn btn-colour" href="{% url 'recipe_detail' recipe.slug %}">Read more →</a>
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">{{ recipe.created_on}} 
-                                <i class="fa-regular fa-heart fa-beat" id="heart"></i>
+                                <i class="fa-regular fa-heart fa-beat heart"></i>
                                 {{ recipe.number_of_likes }}
                             </p>
                         </div>

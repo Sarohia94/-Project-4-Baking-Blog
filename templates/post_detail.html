@@ -13,9 +13,10 @@
             <div class="d-md-block col-8 offset-2 mt-4">
                 {% if "placeholder" in post.featured_image.url %}
                 <img class="card-img" src="{% static 'images/default_post_image.jpg' %}"
-                    width="100%">
+                alt="kneading dough with both hands on wooden table">
                 {% else %}
-                <img class="card-img" src="{{ post.featured_image.url }}" width="100%">
+                <img class="card-img" src="{{ post.featured_image.url }}"
+                alt="post image relating to {{ post.title }}">
                 {% endif %}
             </div>
         </div>
@@ -27,9 +28,7 @@
     <div class="row">
         <div class="col card mb-4 mt-4 top-50">
             <div class="card-body">
-                <p class="card-text">
-                    {{ post.content | safe }}
-                </p>
+                {{ post.content | safe }}
 
                 <div class="row">
 
@@ -42,18 +41,18 @@
 
                                 {% if liked %}
                                 <button id="no-border" type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                    <i class="fa-solid fa-heart" id="heart"></i>
+                                    <i class="fa-solid fa-heart heart"></i>
                                 </button>
                                 {% else %}
                                 <button id="no-border" type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                    <i class="fa-regular fa-heart" id="heart"></i>
+                                    <i class="fa-regular fa-heart heart"></i>
                                 </button>
                                 {% endif %}
                             </form>
 
                             {% else %}
                             <span class="text-secondary">
-                                <i class="fa-regular fa-heart" id="heart"></i>
+                                <i class="fa-regular fa-heart heart"></i>
                             </span>
                             {% endif %}
                             <span class="text-secondary">{{ post.number_of_likes }}</span>

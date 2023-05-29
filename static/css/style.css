@@ -101,8 +101,19 @@
   font-family: 'Indie Flower', sans-serif;
 }
 
+#s-title {
+  font-weight: 500;
+  font-size: 36px;
+  font-family: 'Indie Flower', sans-serif;
+}
+
 #tagline {
   font-size: 24px;
+  color: #6B2737;
+}
+
+#s-tagline {
+  font-size: 20px;
   color: #6B2737;
 }
 
@@ -146,7 +157,7 @@
 
 }
 
-#heart {
+.heart {
   color: var(--bs-red);
 }
 

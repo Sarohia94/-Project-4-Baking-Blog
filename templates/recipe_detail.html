@@ -13,9 +13,10 @@
             <div class="d-md-block col-8 offset-2 mt-4">
                 {% if "placeholder" in recipe.featured_image.url %}
                 <img class="card-img" src="{% static 'images/default_post_image.jpg' %}"
-                    width="100%">
+                alt="kneading dough with both hands on wooden table">
                 {% else %}
-                <img class="card-img" src=" {{ recipe.featured_image.url }}" width="100%">
+                <img class="card-img" src=" {{ recipe.featured_image.url }}"
+                alt="recipe image relating to {{ recipe.recipe_name }}">
                 {% endif %}
             </div>
         </div>
@@ -39,10 +40,8 @@
                 <p>{{ recipe.special_equipment }}</p>
                 <strong>Bakers tip!</strong>
                 <p>{{ recipe.bakers_tip }}</p>
-                <p class="card-text">
-                    <strong>Method:</strong>
-                    {{ recipe.method | safe }}
-                </p>
+                <strong>Method:</strong>
+                {{ recipe.method | safe }}
 
                 <div class="row">
                     <!-- Like icon & no. of likes -->   
@@ -58,14 +57,14 @@
                                 </button>
                                 {% else %}
                                 <button id="no-border" type="submit" name="blogpost_id" value="{{recipe.slug}}" class="btn-like">
-                                    <i class="fa-regular fa-heart fa-beat" id="heart"></i>
+                                    <i class="fa-regular fa-heart fa-beat heart"></i>
                                 </button>
                                 {% endif %}
                             </form>
 
                             {% else %}
                             <span class="text-secondary">
-                                <i class="fa-regular fa-heart fa-beat" id="heart"></i>
+                                <i class="fa-regular fa-heart fa-beat heart"></i>
                             </span>
                             {% endif %}
                             <span class="text-secondary">{{ recipe.number_of_likes }} </span>

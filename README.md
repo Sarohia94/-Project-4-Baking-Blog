@@ -211,7 +211,6 @@ View comments (must have) - As a site user, I can view comments on an individual
 Acceptance Criteria:
 * As a site user, I can clearly view a symbol associated with comments on a post.
 * As a site user, I can view the number of comment next to the comments symbol.
-* I can click on the comments symbol to view the conversation.
 
 
 - - -
@@ -330,17 +329,41 @@ Below are the main features the user will come across
 ![Tenth feature](docs/features/)
 
 ### Future features
-* 
-* 
-* 
+* From the user page the user will be able to view all their recipes and likes easily in one place so that they can see their activity on the site.
+* As the blog grows it would be ideal to implement a search bar so the user can easily find what they are looking for.
+* As the blog grows, update the recipe model to include catergories and have all recipes classified and accessible from the main site by these categories (i.e. cakes, pastry, bread etc).
 
-### Security Features and Defensive Design
+- - -
+
+## Security Features & Defensive Design
+
+I have tried to use defensive programming throughout the site to prevent users accessing pages, submitting requests if they don't have the relevant permissions. 
 
 #### User Authentication
 
+* Django's LoginRequiredMixin is used to ensure that any requests to access secure pages by non-authenticated or, in some cases, non-admin users, are immediatley redirected to the login page.
+
+* Django's UserPassesTestMixin is used to check any number of conditions and will deny a request with a permission error if the test_func() method returns false. As such the user is authenticated before the request is completed.
+
+* Check for authenticated users in templates by using the if statement i.e. {% if user.is_authenticated %}, before allowing access (adding comments) or visibility to links (user page).
+
 #### Form Validation
 
+* Messages are present for fields forms where validation is required. If a user attempts to sign up or login without completing the relevant fields a message is displayed. User will not be able to sign in or login until all relevant fields are filled in.
+
+* Similary when submitting a recipe if the required fields are not filled in then the user will be directed to the empty required field. This will not submit until all required fields are completed.
+
 #### Database Security
+
+The database url and secret key are stored in the env.py file to prevent unwanted connections to the database. The env.py file was created before the initial push to GitHub.
+
+Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
+
+#### Custom Error Page
+
+This was created following a tutorial (linked in the credits) for when a user is trying to access a recipe to delete it. This will give the user some information on the error and give them a link to return home.
+
+* 403 Unauthorized Access - You're not authorized to perform this action
 
 - - -
 
@@ -348,17 +371,37 @@ Below are the main features the user will come across
 
 ### Languages Used
 
+* HTML
+* CSS
+* Javascript
+* Python
 
 ### Frameworks, Libraries & Programs Used
 * [Am I responsive?](https://ui.dev/amiresponsive) - to show game across a range of devices.
 * Git - for version control. 
 * GitHub - to save and store the code pushed from Git.
 * GitPod - using GitPod terminal to commit to Git and push to GitHub.
+* Balsamic - to create the wireframes when designing the website.
+* Dev Tools - for testing and troubleshooting.
+* [Google Fonts](https://fonts.google.com/) - to import font to apply on the website.
+* [Font Awesome](https://fontawesome.com/) - to add icons.
+* [Wave](https://wave.webaim.org/) - to test web accessibility.
+* [W3C](https://validator.w3.org/) - HTML validator.
+* [Jigsaw](https://jigsaw.w3.org/css-validator/) - CSS validator.
+* [Jshint](https://jshint.com/) - to check for errors and problems with javascript code.
+* Hover.css - to make the nav bar, footer links and the sign up button interactive.
+* [Tiny PNG](https://tinypng.com/) - to compress images.
+* [Responsive design checker](https://responsivedesignchecker.com/) - to check responsive design for a variety of screen sizes.
+* [Favicon.io](https://favicon.io/favicon-generator/) - to creat favicon icon for the website.
+* Django Crispy Forms - provides a tag and filter that lets you quickly render forms
+* Django Allauth - used for authentication, registration & account management.
+* Django - a high-level Python web framework that encourages rapid development
+* Bootstrap - a framework for building responsive, mobile-first sites.
 
 - - -
 
 ## Testing 
-Issues raised in my project meetings with my mentor [Chris Quinn](https://github.com/10xOXR) :
+Issues raised in my project meetings with my mentor [Chris Quinn](https://github.com/10xOXR) :S
 
 1. 
 
