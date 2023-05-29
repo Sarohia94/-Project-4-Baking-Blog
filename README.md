@@ -453,6 +453,7 @@ No issues with the HTML pages or CSS:
 * [User page](docs/testing/w3c/w3c_user_page.png)
 * [css](docs/testing/w3c/w3ccss.png) - parse errors only
 
+
 ### Manual Testing
 * Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome-mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet-mobile.jpg)
 * Tested on laptop with [Microsoft Edge](docs/testing/manualtesting/microsoftedge-laptop.png) and desktop with [Firefox](docs/testing/manualtesting/firefox-desktop.png).
@@ -461,11 +462,61 @@ No issues with the HTML pages or CSS:
 
 ## Deployment 
 
+The project is deployed using Heroku.
+
+#### To deploy the project, we first need to create the live database which can be accessed by Heroku:
+
+1. Go to the ElephantSQL dashboard and click the create new instance button on the top right.
+2. Name the plan (i.e. your project name), select the tiny turtle plan (which is the free plan) and choose the region that is closest to you then click the review button.
+3. Check the details are all correct and then click create instance in the bottom right.
+4. Go to the dashboard and select the database just created.
+5. Copy the URL.
+
+#### Heroku app setup:
+
+1. From the Heroku dashboard, click the new button in the top right corner and select create new app.
+2. Give your app a unique name, select the region that is closest to you and then click the create app button bottom left.
+3. Open the settings tab and create a new config var of DATABASE_URL and paste the database URL you copied from elephantSQL into the value (remove quotation marks from value).
+
+#### Prepare env.py and settings.py files
+
+1. In your GitPod workspace, create an env.py file in the main directory and add the DATABASE_URL value and your chosen SECRET_KEY value to the file.
+3. Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+4. Comment out default database configuration then save all files and make migrations.
+5. Add the Cloudinary URL to env.py and the Cloudinary libraries to the list of installed apps.
+6. Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+7. Link the file to the templates directory in Heroku.
+8. Change the templates directory to TEMPLATES_DIR
+9. Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+
+#### Create files / directories
+1. Create a requirements.txt file
+2. Create directories in the main directory
+3. Create a "Procfile" in the main directory and add the following: web: gunicorn project_name.wsgi
+
+#### Update Heroku Config Vars
+Add the following Config Vars in Heroku:
+SECRET_KEY = value
+CLOUDINARY_URL = value
+PORT = 8000
+DISABLE_COLLECTSTATIC = 1
+HEROKU_POSTGRESQL_OLIVE_URL = value
+DATABASE_URL = value
+
+#### Deploy
+
+1. Make sure DEBUG = False in the settings.py
+2. Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+3. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Please note, manually deployed branches will need re-deploying each time the GitHub repository is updated.
+4. Click 'Open App' to view the deployed live site.
+
+The site is now live and operational.
+
 ### Local Deployment
 
 #### How to Clone
 1. Sign up or log in to GitHub
-2. Go to the repository https://github.com/Sarohia94/Project-3-Hangman
+2. Go to the repository https://github.com/Sarohia94/Project-4-Baking-Blog
 3. Go to the code dropdown and select how you'd like clone and copy the link provided
 4. Go to the new repo and enter in your workspace terminal, "git clone" (without quotes) followed by the link copied
 5. Install necessary libraries/frameworks to the terminal 
@@ -486,19 +537,6 @@ The website was deployed to GitHub Pages as follows:
 5. Under "Branch" select "main" from the dropdown
 6. Click "Save" which will then refresh the page
 7. It might take a few mins before you can refresh and view the link to the site published
-
-### Deploy project to Heroku
-1. Assuming you have cloned or forked the repository, sign up or log in to Heroku
-2. Go to "new" and click "create new app", the "create new app" is also available from the dashboard
-3. Enter a unique app name and choose a region
-4. Click "create app"
-6. Go to the Settings tab and set the Buildbacks to Python and NodeJS, in that order
-7. On the same tab go to Config Vars, click "reveal config vars" and enter PORT in to "KEY" and 8000 in to "VALUE" and then click "Add"
-8. Now go to the Deploy tab and click "Connect to Github" from Deployment Method.
-9. Search by the repository name (which needs to match exactly), once this is found 
-10. Enable automatic deploys if preferred 
-11. Go to Manual deploy, the branch to deploy should be main and then click on "Deploy Branch"
-12. Once deployment is complete you can click "View" to open the game in Heroku
 
 - - -
 
