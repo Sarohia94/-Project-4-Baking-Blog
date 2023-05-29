@@ -426,11 +426,19 @@ Issues raised in my project meetings with my mentor [Chris Quinn](https://github
 
 ### PEP8 
 Testing carried out via [PEP8 Validator](https://pep8ci.herokuapp.com/), all clear, no errors found:
-* Letbake
+* letsbake
 1. [asgi.py](docs/testing/pep8/pep8_asgi.png)
 2. [settings.py](docs/testing/pep8/pep8_settings.png)
 3. [urls.py](docs/testing/pep8/pep8_urls.png)
 4. [wsgi.py](docs/testing/pep8/pep8_wsgi.png) 
+
+* blog
+1. [admin.py](docs/testing/pep8/pep8_admin.png)
+2. [apps.py](docs/testing/pep8/pep8_apps.png)
+3. [forms.py](docs/testing/pep8/pep8_forms.png)
+4. [models.py](docs/testing/pep8/pep8_models.png)
+5. [urls.py](docs/testing/pep8/pep8_blog_urls.png)
+6. [views](docs/testing/pep8/pep8_views.png)
 
 
 ### W3C Validator 
