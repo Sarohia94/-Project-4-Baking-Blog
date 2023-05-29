@@ -1,36 +1,35 @@
 {% extends "base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
-
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 {% block content %}
-
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-
-      <h3>{% trans "Sign In" %}</h1>
-
-      <p>{% blocktrans %} Welcome back to Let's bake. 
-        To leave a comment or like a post, please log in. If you have not created an account yet, 
-        then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      <h3 class="text-color">{% trans "Sign In" %}</h1>
+      <hr>
+      <p>{% blocktrans %} Welcome to Let's bake! <br>
+        To leave a comment or like a post, please log in.<br>
+        <small> If you have not created an account yet, then please 
+        <a class="text-color" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+        </small>
+      </p>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+      <div class="card-body">
+        <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
-        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-      </form>
+          <button class="btn btn-colour" type="submit">{% trans "Log In" %}</button>
+        </form>
+      </div>
     </div>
   </div>
+  <hr>
 </div>
 {% endblock %}

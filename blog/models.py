@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, 'Draft'), (1, 'Published'))
 
 
+# From Code Institute Blog Walkthrough
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -29,6 +30,12 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    # From Sean, tutor support
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.title.replace(" ", "-")
+        super().save(*args, **kwargs)
+
 
 class PostComment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
@@ -49,6 +56,7 @@ class PostComment(models.Model):
         return self.post_comments.count()
 
 
+# Custom model
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=80)
     slug = models.SlugField(unique=True, max_length=80)
