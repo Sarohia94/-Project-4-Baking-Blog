@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
 from django.views.generic import CreateView, DeleteView, UpdateView
@@ -165,6 +166,11 @@ class DeleteRecipe(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Recipe
     template_name = "delete_recipe.html"
     success_url = "/recipes/"
+    success_message = "Post was deleted successfully."
+
+    def delete(self, request, *args, **kwargs):
+        messages.warning(self.request, self.success_message)
+        return super(DeleteRecipe, self).delete(request, *args, **kwargs)
 
     def test_func(self):
         return self.request.user == self.get_object().author

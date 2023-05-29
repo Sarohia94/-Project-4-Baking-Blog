@@ -49,14 +49,12 @@
                                     <i class="fa-regular fa-heart" id="heart"></i>
                                 </button>
                                 {% endif %}
-
                             </form>
 
                             {% else %}
                             <span class="text-secondary">
                                 <i class="fa-regular fa-heart" id="heart"></i>
                             </span>
-
                             {% endif %}
                             <span class="text-secondary">{{ post.number_of_likes }}</span>
                         </strong>
@@ -128,8 +126,8 @@
                 </form>
                 
                 {% else %}
-                <p class="fw-semibold">Please <a href="{% url 'account_signup' %}">Sign up</a> or 
-                    <a href="{% url 'account_login' %}">Log in</a> to like or comment on a post.
+                <p class="fw-semibold">Please <a class="text-color" href="{% url 'account_signup' %}">Sign up</a> or 
+                    <a class="text-color" href="{% url 'account_login' %}">Login</a> to like or comment on a post.
                 </p>
                 {% endif %}
                 {% endif %}
@@ -137,5 +135,4 @@
         </div>
     </div>
 </div>
-
 {% endblock content %}

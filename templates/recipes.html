@@ -1,20 +1,18 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 <!-- Page content-->
 <div class="container-fluid">
-
     <div class="row">
         <div class="col-8 offset-2 mt-4 text-center">
-            <h1>Recipes</h2>
+            <h1 class="text-color">Recipes</h2>
             <hr>
         </div>
     </div>
 
+    <!-- Recipe Entries -->
     <div class="row">
-
-        <!-- Recipe Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for recipe in recipe_list %}
@@ -24,8 +22,8 @@
                             <div class="carousel">
                                 {% if "placeholder" in recipe.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://images.pexels.com/photos/9095/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                                    alt="kneading dough with both hands on wooden table" />
+                                    src="{% static 'images/default_post_image.jpg' %}"
+                                    alt="kneading dough with both hands on wooden table"/>
                                 {% else %}
                                 <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
                                 {% endif %}
@@ -33,13 +31,14 @@
                                     <p>Author: {{ recipe.author }}</p>
                                 </div>
                             </div>
-                            <div class="small text-muted">{{ recipe.created_on}}</div>
-                            <h2 class="card-title h4">{{ recipe.recipe_name }}</h2>
+                            <h2 class="card-title h4 text-decoration-underline">{{ recipe.recipe_name }}</h2>
                             <p class="card-text">{{ recipe.descripton|truncatechars:100 }}</p>
-                            <a class="btn btn-primary" href="{% url 'recipe_detail' recipe.slug %}">Read more →</a>
+                            <a class="btn btn-colour" href="{% url 'recipe_detail' recipe.slug %}">Read more →</a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="fa-regular fa-heart fa-beat"></i>
-                                {{ recipe.number_of_likes }}</p>
+                            <p class="card-text text-muted h6">{{ recipe.created_on}} 
+                                <i class="fa-regular fa-heart fa-beat" id="heart"></i>
+                                {{ recipe.number_of_likes }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +47,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
