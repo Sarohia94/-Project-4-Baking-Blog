@@ -32,11 +32,6 @@ Registered users have the option to share, edit and delete their own recipes. Th
   * [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)
 
 * [Testing](#Testing)
-  * [Solved Bugs](#Solved-Bugs)
-  * [Known Bugs](#Known-Bugs)
-  * [PEP8](#PEP8)
-  * [W3C Validator](#W3C-Validator)
-  * [Manual Testing](#Manual-Testing)
 
 * [Deployment](#Deployment)
   * [Local Deployment](#Local-Deployment)
@@ -277,33 +272,21 @@ Below are the main features the user will come across
 
 ![First feature](docs/features/)
 
-   User input is validated 
-
-![First user input validation](docs/features/)
 
 2. 
 
 ![Second feature](docs/features/)
 
-   User input is validated 
-
-![Second user input validation](docs/features/)
 
 3. 
 
 ![Third feature](docs/features/)
 
-   User input is validated 
-
-![Third user input validation](docs/features/)
 
 4. 
 
 ![Fourth feature](docs/features/)
 
-   User input is validated 
-
-![Fourth user input validation](docs/features/)
 
 5. 
 
@@ -402,61 +385,7 @@ This was created following a tutorial (linked in the credits) for when a user is
 - - -
 
 ## Testing 
-Issues raised in my project meetings with my mentor [Chris Quinn](https://github.com/10xOXR) :S
-
-1. 
-
-### Solved Bugs
-
-1. 
-
-2. 
-
-3. 
-
-![Issue](docs/testing/issues/)
-
-
-
-![Fix](docs/testing/issues/)
-
-### Known Bugs
-
-1. 
-
-### PEP8 
-Testing carried out via [PEP8 Validator](https://pep8ci.herokuapp.com/), all clear, no errors found:
-* letsbake
-1. [asgi.py](docs/testing/pep8/pep8_asgi.png)
-2. [settings.py](docs/testing/pep8/pep8_settings.png)
-3. [urls.py](docs/testing/pep8/pep8_urls.png)
-4. [wsgi.py](docs/testing/pep8/pep8_wsgi.png) 
-
-* blog
-1. [admin.py](docs/testing/pep8/pep8_admin.png)
-2. [apps.py](docs/testing/pep8/pep8_apps.png)
-3. [forms.py](docs/testing/pep8/pep8_forms.png)
-4. [models.py](docs/testing/pep8/pep8_models.png)
-5. [urls.py](docs/testing/pep8/pep8_blog_urls.png)
-6. [views](docs/testing/pep8/pep8_views.png)
-
-
-### W3C Validator 
-No issues with the HTML pages or CSS:
-* [Home](docs/testing/w3c/w3c_home.png)
-* [Post detail](docs/testing/w3c/w3c_post_detail.png)
-* [Recipe detail](docs/testing/w3c/w3c_recipe_detail.png)
-* [Recipes](docs/testing/w3c/w3c_recipes.png)
-* [Sign up](docs/testing/w3c/w3c_signup.png)
-* [Login](docs/testing/w3c/w3c_login.png)
-* [Logout](docs/testing/w3c/w3c_logout.png)
-* [User page](docs/testing/w3c/w3c_user_page.png)
-* [css](docs/testing/w3c/w3ccss.png) - parse errors only
-
-
-### Manual Testing
-* Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome-mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet-mobile.jpg)
-* Tested on laptop with [Microsoft Edge](docs/testing/manualtesting/microsoftedge-laptop.png) and desktop with [Firefox](docs/testing/manualtesting/firefox-desktop.png).
+Details of all testing done can be viewed in depth in the [TESTING.md]() document.
 
 - - -
 
@@ -553,4 +482,4 @@ The website was deployed to GitHub Pages as follows:
 ### Acknowledgements 
 Thank you to anyone taking the time to view my third project. Special thanks to the Slack community and the below individuals:
 * [Chris Quinn](https://github.com/10xOXR), my mentor. Thank you for your guidance and feedback.
-* To the tutors from tutor support for their help and assistance: S
+* To the tutors from tutor support for their help and assistance: 

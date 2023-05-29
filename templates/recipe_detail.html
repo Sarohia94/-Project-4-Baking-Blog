@@ -112,8 +112,8 @@
     <!-- Comments -->
     <div class="row">
         <div class="col-md-8 card mb-4 mt-4">
-            <h3 class="text-color">Comments:</h3>
             <div class="card-body">
+                <h3 class="text-color">Comments:</h3>
                 {% for recipe_comment in recipe_comments %}
                 <div>
                     <p class="fw-semibold">
@@ -146,6 +146,7 @@
                     {{ recipe_comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-colour">Submit</button>
+                    <hr>
                 </form>
 
                 {% else %}
