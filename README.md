@@ -35,13 +35,18 @@ Registered users have the option to share, edit and delete their own recipes. Th
 * [Testing](#Testing)
 
 * [Deployment](#Deployment)
+  * [Create the live database which can be accessed by Heroku](#create-the-live-database-which-can-be-accessed-by-heroku)
+  * [Heroku app setup:](#heroku-app-setup)
+  * [Prepare env.py and settings.py files](#prepare-envpy-and-settingspy-files)
+  * [Create files / directories](#create-files--directories)
+  * [Update Heroku Config Vars](#update-heroku-config-vars)
+  * [Deploy](#deploy)
   * [Local Deployment](#Local-Deployment)
   * [Remote Deployment](#Remote-Deployment)
   * [Deploy project to Heroku](#Deploy-project-to-Heroku)
   
 * [Credits](#Credits)
   * [Code](#Code)
-  * [Content](#Content)
   * [Acknowledgements](#Acknowledgements)
 
 - - -
@@ -430,8 +435,8 @@ Autoslug - improved slug field which can automatically populate itself from anot
 * [Favicon.io](https://favicon.io/favicon-generator/) - to creat favicon icon for the website.
 * Django - a high-level Python web framework that encourages rapid development
 * Bootstrap - a framework for building responsive, mobile-first sites.
-* Heroku- used to deploy the live project.
-* PostgreSQL- database used through heroku.
+* Heroku - used to deploy the live project.
+* PostgreSQL - database used through heroku.
 
 - - -
 
