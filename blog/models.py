@@ -68,10 +68,10 @@ class Recipe(models.Model):
     serves = models.IntegerField()
     prep_time = models.CharField(max_length=15)
     baking_time = models.CharField(max_length=15)
-    ingredients = models.CharField(max_length=250)
+    ingredients = models.TextField(max_length=250)
     special_equipment = models.CharField(max_length=150, blank=True)
     method = models.TextField()
-    bakers_tip = models.CharField(max_length=200, blank=True)
+    bakers_tip = models.TextField(max_length=200, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
