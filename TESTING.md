@@ -7,6 +7,7 @@ Return to [README](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/
 * [W3C Validator](#W3C-Validator)
 * [Manual Testing](#Manual-Testing)
 * [Accessibility](#Accessiblity)
+* [Lighthouse Testing](#lighthouse-testing)
 * [User Validation Testing](#User-Validation-Testing)
 
 - - -
@@ -83,6 +84,17 @@ See below tests carried out over different browsers and devices. Responsive desi
 
 [Wave](https://wave.webaim.org/) Web Accessibility Evaluation Tools were used to test accessibility. Please see the results below for each page.
 
+* [Home](docs/testing/wave/wave_home.png)
+* [Post detail](docs/testing/wave/wave_post.png)
+* [Recipe detail](docs/testing/wave/wave_recipe_post.png)
+* [Recipes](docs/testing/wave/wave_recipe.png)
+* [Sign up](docs/testing/wave/wave_signup.png)
+* [Login](docs/testing/wave/wave_login.png)
+* [User page](docs/testing/wave/wave_user_page.png)
+
+- - -
+
+## Lighthouse Testing
 * [Home](docs/testing)
 * [Post detail](docs/testing)
 * [Recipe detail](docs/testing)
