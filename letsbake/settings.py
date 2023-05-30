@@ -33,6 +33,22 @@ DEBUG = int(os.environ.get("DEVELOPMENT", default=0))
 # Load summernote editor
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+# django_summernote config
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+        'toolbar': [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+        ],
+    },
+}
+
 ALLOWED_HOSTS = ['p4-baking-blog.herokuapp.com', 'localhost']
 
 # Application definition

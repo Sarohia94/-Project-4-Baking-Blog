@@ -67,6 +67,9 @@ No issues with the HTML pages or CSS:
 - - -
 
 ## Manual Testing
+
+The Website was tested on Samsung internet, Google Chrome, Firefox and Safari browsers. No functionality issues were noted. There is a styling issue with the comment/like count on smaller screens which I was unable to fix due to time constraints but again functionality is ok.
+
 See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect.
 
 * Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome-mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet-mobile.jpg)
@@ -76,6 +79,16 @@ See below tests carried out over different browsers and devices. Responsive desi
 
 ## Accessibility
 
+[Wave](https://wave.webaim.org/) Web Accessibility Evaluation Tools were used to test accessibility. Please see the results below for each page.
+
+* [Home](docs/testing)
+* [Post detail](docs/testing)
+* [Recipe detail](docs/testing)
+* [Recipes](docs/testing)
+* [Sign up](docs/testing)
+* [Login](docs/testing)
+* [Logout](docs/testing)
+* [User page](docs/testing)
 
 - - -
 
