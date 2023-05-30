@@ -9,7 +9,7 @@ STATUS = ((0, 'Draft'), (1, 'Published'))
 # From Code Institute Blog Walkthrough
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    slug = AutoSlugField(populate_from='title')
+    slug = AutoSlugField(populate_from='title', unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts'
     )
@@ -60,7 +60,7 @@ class PostComment(models.Model):
 # Custom model
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=80)
-    slug = AutoSlugField(populate_from='title')
+    slug = AutoSlugField(populate_from='recipe_name', unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='recipe_posts'
     )
