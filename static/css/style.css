@@ -40,7 +40,7 @@
 .image {
   background-color: #E4FDE1;
   background: linear-gradient(rgba(228, 253, 225, 0.6),
-  rgba(228, 253, 225, 0.3)), url('../images/hero_image.jpeg');
+  rgba(228, 253, 225, 0.3)), url('https://res.cloudinary.com/dikgh3g5i/image/upload/v1685433066/static/images/hero_image.c6641504677c.jpg');
   background-position: center;
   background-size: cover;
   display: flex;
