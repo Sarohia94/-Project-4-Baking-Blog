@@ -91,7 +91,7 @@ Please find my Kanban Board with my user stories [here](https://github.com/users
 
 ### Epics & User Stories
 
-Epic 1: Website UI Features
+**Epic 1: Website UI Features**
 
 User Story #1
 
@@ -125,7 +125,7 @@ Acceptance Criteria:
 * As a site user, I can use the search bar to search by recipe name.
 * As a site user, I can view the results yielded by my search that I can click from.
 
-Epic 2: Registration & Account Features
+**Epic 2: Registration & Account Features**
 
 User Story #6 
 
@@ -172,7 +172,7 @@ Acceptance Criteria:
 * As a logged-in user I can view a page with a list of all my posts.
 * As a logged-in user I can view a page with a list of all my likes.
 
-Epic 3: Blog Features
+**Epic 3: Blog Features**
 
 User Story #12 
 
@@ -213,11 +213,15 @@ Acceptance Criteria:
 
 ## Design
 
+A bootstrap template was used to help format the core blog website. Custom css styling and html was also used.
+
+* [Bootstrap template](https://startbootstrap.com/template/blog-home)
+
 ### Colour Scheme
 
 The colour scheme was taken from [Coolors](https://coolors.co/). 
 
-It was based on the image used for the [Favicon icon](https://www.pngall.com/wp-content/uploads/5/Yummy-Cupcake-PNG-Picture.png) which I thought was fun and inviting.
+It was based on the image used for the [Favicon icon](https://www.pngall.com/cupcake-png/download/52003) which I thought was fun and inviting.
 
 The use of these colours have been consistently maintained throughout the website and checked for contrast to allow easy accessibility.
 
@@ -228,7 +232,8 @@ The use of these colours have been consistently maintained throughout the websit
 [Google Fonts](https://fonts.google.com/) were used as below:
 
 * Indie Flower is used for the title.
-* Acme is used for the body of the text. 
+* Source Serif Pro is used for the body of the text. 
+* San serif font is present as backup.
 
 ### Imagery
 
@@ -249,15 +254,13 @@ Wireframes were created for destop/laptop, tablet and mobile.
 * Sign in page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_blog_sign_in.png), here for [tablet](docs/wireframes/tablet_blog_sign_in.png) and here for [mobile](docs/wireframes/mobile_blog_sign_in.png).
 
 
-A bootstrap template was used to help format the core blog website. Custom css styling and html was also used.
-
-* [Bootstrap template](https://startbootstrap.com/template/blog-home)
-
 ### Database Model
 
 Principles of object-oriented programming was used throughout this project and Django’s class-based generic views. Django AllAuth was used for user authentication.
 
-A custom database model was developed as below for recipes.
+Comment model was followed from walkthrough project.
+
+A custom database model was developed for recipes.
 
 ![Custom database model](docs/custom__model.png)
 
@@ -268,49 +271,87 @@ The custom model was made to incorporate CRUD functionality. This allows registe
 ## Features
 Below are the main features the user will come across 
 
-1. 
+1. Favicon logo is displayed for the blog.
 
-![First feature](docs/features/)
+![First feature](docs/features/favicon.png)
+ 
+2. Navbar is present at the top of every page and includes all links to the other pages. Hovering over the link changes the colour from #E4FDE1 to white.
 
+![Second feature](docs/features/navbar.png)
 
-2. 
+3. When a user is logged in, the title changes to the user's name with a profile icon 
 
-![Second feature](docs/features/)
+![Third feature](docs/features/navbar_logged_in.png)
 
+4. The navbar is fully responsive and collapses into a hamburger menu icon on smaller screen sizes. When the hamburger is clicked, the menu options open on the left-hand side.
 
-3. 
+![Fourth feature](docs/features/navbar_responsive.png)
 
-![Third feature](docs/features/)
+5. The footer section includes working links to Facebook, Twitter, Instagram and YouTube. Clicking each link will open a separate browser page to the login of that website.
+Hovering over the links will change the color from #E4FDE1 to white, identical to the navbar.
 
+![Fifth feature](docs/features/footer_links.png)
 
-4. 
+6. Home page has an about me feature to describe the blog and then general posts from admin related to baking for user to read.
 
-![Fourth feature](docs/features/)
+![Sixth feature](docs/features/home.png)
 
+7. Admin blog posts will try to give the user some knowledge and general advise relating to baker based on experience.
 
-5. 
+![Seventh feature](docs/features/blog_post.png)
 
-![Fifth feature](docs/features/)
+8. Logged in user can add in a comment using the leave comment form which is subject to approval for screening by admin before this is displayed. This functionality is present for blog and recipe posts.
 
-6. 
+![Eighth feature](docs/features/leave_comment.png)
 
-![Sixth feature](docs/features/)
+9. From a post a logged in user has the ability to like or comment on posts where the count next to the respective icons will be displayed. This functionality is present for blog and recipe posts.
 
-7. 
+![Ninth feature](docs/features/likes_comments_count.png)
 
-![Seventh feature](docs/features/)
+10. There is an option to return home or return to recipe page from the individual posts / recipes. 
 
-8. 
+![Tenth feature part 1](docs/features/return_home.png)
+![Tenth feature part 2](docs/features/return_to_recipes.png)
 
-![Eighth feature](docs/features/)
+11. There is a comment prompt to user to sign up or login (links in place) if they want to engage with the post.
 
-9. 
+![Eleventh feature](docs/features/leave_comment.png)
 
-![Ninth feature](docs/features/)
+12. Recipe posts have CRUD functionality from the recipe post you are able to edit or delete the recipe if you are the author.
 
-10. 
+![Twelfth feature](docs/features/edit_delete.png)
 
-![Tenth feature](docs/features/)
+13. The edit recipe feature appears with fields pre-filled in and the author can then change and update recipe.
+
+![Thirteenth feature](docs/features/edit_recipe.png)
+
+14. The delete recipe feature will have a message to confirm the uses wants to delete. Please note 'test' below will refer to the name of the recipe.
+
+![Fourteenth feature](docs/features/delete_recipe.png)
+
+15. User page is accessible once logged in. This is where the user is able to add recipes.
+
+![Fifthteenth feature](docs/features/user_page.png)
+
+16. Add recipe form has fields to help guide the user on how to format and some required fields to help post a well rounded recipe.
+
+![Sixteenth feature](docs/features/add_recipe.png)
+
+17. There is a sign up form for users to register an account. There is also a prompt for those who have an account to login (link in place).
+
+![Seventeenth feature](docs/features/signup.png)
+
+18. A user who has an account can log in. There is a prompt if the user doesn't have an account to go signup first (link in place). Again there is a message to reiterate access to liking and commenting once logged in.
+
+![Eighteenth feature](docs/features/login.png)
+
+19. A user who has an logged in can log out. There is a message to confirm if the uses wishes to log out which the user has to click the button to confirm.
+
+![Nineteenth feature](docs/features/logout.png)
+
+20. Consistent formatting with hero image and tagline throughout the site to confirm blog purpose.
+
+![Twentieth feature](docs/features/hero_image.png)
 
 ### Future features
 * From the user page the user will be able to view all their recipes and likes easily in one place so that they can see their activity on the site.
@@ -337,6 +378,8 @@ I have tried to use defensive programming throughout the site to prevent users a
 
 * Similary when submitting a recipe if the required fields are not filled in then the user will be directed to the empty required field. This will not submit until all required fields are completed.
 
+See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
+
 #### Database Security
 
 The database url and secret key are stored in the env.py file to prevent unwanted connections to the database. The env.py file was created before the initial push to GitHub.
@@ -348,6 +391,8 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 This was created following a tutorial (linked in the credits) for when a user is trying to access a recipe to delete it. This will give the user some information on the error and give them a link to return home.
 
 * 403 Unauthorized Access - You're not authorized to perform this action
+
+See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
 
 - - -
 
@@ -385,7 +430,7 @@ This was created following a tutorial (linked in the credits) for when a user is
 - - -
 
 ## Testing 
-Details of all testing done can be viewed in depth in the [TESTING.md]() document.
+Details of all testing done can be viewed in depth in the [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
 
 - - -
 
