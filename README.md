@@ -29,6 +29,7 @@ Registered users have the option to share, edit and delete their own recipes. Th
 
 * [Technologies Used](#Technologies-Used)
   * [Languages Used](#Languages-Used)
+  * [Django](#Django)
   * [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)
 
 * [Testing](#Testing)
@@ -400,10 +401,17 @@ See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TE
 
 ### Languages Used
 
-* HTML
-* CSS
-* Javascript
-* Python
+HTML, CSS, Javascript and Python.
+
+### Django 
+Gunicorn - as the server for Heroku.
+Cloudinary - to host the static files and media for the site.
+Dj_database_url - to parse the database URL from the environment variables in Heroku.
+Psycopg2 - as an adaptor for Python and PostgreSQL databases.
+Summernote - as a text editor.
+Allauth - for authentication, registration, account management.
+Crispy forms - provides a tag and filter that lets you quickly render forms
+Autoslug - improved slug field which can automatically populate itself from another field and preserve uniqueness of the value.
 
 ### Frameworks, Libraries & Programs Used
 * [Am I responsive?](https://ui.dev/amiresponsive) - to show game across a range of devices.
@@ -417,19 +425,18 @@ See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TE
 * [Wave](https://wave.webaim.org/) - to test web accessibility.
 * [W3C](https://validator.w3.org/) - HTML validator.
 * [Jigsaw](https://jigsaw.w3.org/css-validator/) - CSS validator.
-* [Jshint](https://jshint.com/) - to check for errors and problems with javascript code.
-* Hover.css - to make the nav bar, footer links and the sign up button interactive.
 * [Tiny PNG](https://tinypng.com/) - to compress images.
 * [Responsive design checker](https://responsivedesignchecker.com/) - to check responsive design for a variety of screen sizes.
 * [Favicon.io](https://favicon.io/favicon-generator/) - to creat favicon icon for the website.
-* Django Crispy Forms - provides a tag and filter that lets you quickly render forms
-* Django Allauth - used for authentication, registration & account management.
 * Django - a high-level Python web framework that encourages rapid development
 * Bootstrap - a framework for building responsive, mobile-first sites.
+* Heroku- used to deploy the live project.
+* PostgreSQL- database used through heroku.
 
 - - -
 
 ## Testing 
+
 Details of all testing done can be viewed in depth in the [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
 
 - - -
@@ -438,7 +445,7 @@ Details of all testing done can be viewed in depth in the [TESTING.md](https://g
 
 The project is deployed using Heroku.
 
-#### To deploy the project, we first need to create the live database which can be accessed by Heroku:
+### Create the live database which can be accessed by Heroku:
 
 1. Go to the ElephantSQL dashboard and click the create new instance button on the top right.
 2. Name the plan (i.e. your project name), select the tiny turtle plan (which is the free plan) and choose the region that is closest to you then click the review button.
@@ -446,43 +453,45 @@ The project is deployed using Heroku.
 4. Go to the dashboard and select the database just created.
 5. Copy the URL.
 
-#### Heroku app setup:
+### Heroku app setup:
 
 1. From the Heroku dashboard, click the new button in the top right corner and select create new app.
 2. Give your app a unique name, select the region that is closest to you and then click the create app button bottom left.
 3. Open the settings tab and create a new config var of DATABASE_URL and paste the database URL you copied from elephantSQL into the value (remove quotation marks from value).
 
-#### Prepare env.py and settings.py files
+### Prepare env.py and settings.py files
 
 1. In your GitPod workspace, create an env.py file in the main directory and add the DATABASE_URL value and your chosen SECRET_KEY value to the file.
 3. Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
 4. Comment out default database configuration then save all files and make migrations.
 5. Add the Cloudinary URL to env.py and the Cloudinary libraries to the list of installed apps.
-6. Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+6. Add the STATIC files settings
 7. Link the file to the templates directory in Heroku.
 8. Change the templates directory to TEMPLATES_DIR
 9. Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
 
-#### Create files / directories
+### Create files / directories
 1. Create a requirements.txt file
 2. Create directories in the main directory
 3. Create a "Procfile" in the main directory and add the following: web: gunicorn project_name.wsgi
 
-#### Update Heroku Config Vars
+### Update Heroku Config Vars
 Add the following Config Vars in Heroku:
 SECRET_KEY = value
-CLOUDINARY_URL = value
+CLOUDINARY_URL = URL
 PORT = 8000
 DISABLE_COLLECTSTATIC = 1
-HEROKU_POSTGRESQL_OLIVE_URL = value
-DATABASE_URL = value
+HEROKU_POSTGRESQL_OLIVE_URL = URL
+DATABASE_URL = URL
 
-#### Deploy
+### Deploy
 
-1. Make sure DEBUG = False in the settings.py
-2. Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
-3. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Please note, manually deployed branches will need re-deploying each time the GitHub repository is updated.
-4. Click 'Open App' to view the deployed live site.
+1. Make sure DEBUG = int(os.environ.get("DEVELOPMENT", default=0)) in the settings.py
+2. Remove config vars DISABLE_COLLECTSTATIC = 1 from Heroku settings.
+3. Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+4. Remove config vars DISABLE_COLLECTSTATIC = 1 from Heroku settings.
+5. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Please note, manually deployed branches will need re-deploying each time the GitHub repository is updated.
+6. Click 'Open App' to view the deployed live site.
 
 The site is now live and operational.
 
@@ -517,14 +526,27 @@ The website was deployed to GitHub Pages as follows:
 ## Credits
 
 ### Code
-* 
 
-### Content
-* The content was written by the developer Amritpreet Sarohia.
-* 
-* 
+For general guidance and trouble shooting:
+* W3Schools
+* Django Docs
+* [Bootstrap Docs](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+* Stack Overflow
+* Code Institute - Blog Walkthrough Project
+* Youtube videos by Codemy
+
+* [Bootstrap template](https://startbootstrap.com/template/blog-home) - for general layout and design.
+* Step-By-Step baking by Caroline Bretherton - for content and recipes
+* [Django Recipe Sharing Tutorial](https://www.youtube.com/watch?v=GsjLuiYXYHg) - used as a guide to implement CRUD functionality
+
+Images creditted as follows:
+* Images from home blog posts as well as hero image taken from [Pexels](https://www.pexels.com/)
+* [Ginger Cake](https://th.bing.com/th/id/OIP.iiPOkPAZ9-5JlJbXPsHQsgHaE8?pid=ImgDet&rs=1)
+* [Sticky toffee pudding](https://i1.wp.com/pastry-workshop.com/wp-content/uploads/2014/09/1jpg-1-of-1-19.jpg)
+* [Angel food cake](https://i.pinimg.com/originals/e8/b1/a8/e8b1a8127ee465c567a293aa004f57bf.jpg)
+
 
 ### Acknowledgements 
-Thank you to anyone taking the time to view my third project. Special thanks to the Slack community and the below individuals:
+Thank you to anyone taking the time to view my fourth project. Special thanks to the Slack community and the below individuals:
 * [Chris Quinn](https://github.com/10xOXR), my mentor. Thank you for your guidance and feedback.
-* To the tutors from tutor support for their help and assistance: 
+* To the tutors from tutor support for their help and assistance: Sean, Oisin, Jason, Holly, Sarah, Joanne, Gemma, Joshua, Rebecca and Kevin!   
