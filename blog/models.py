@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from autoslug import AutoSlugField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 
@@ -8,7 +9,7 @@ STATUS = ((0, 'Draft'), (1, 'Published'))
 # From Code Institute Blog Walkthrough
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = AutoSlugField(populate_from='title')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts'
     )
@@ -59,7 +60,7 @@ class PostComment(models.Model):
 # Custom model
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=80)
-    slug = models.SlugField(unique=True, max_length=80)
+    slug = AutoSlugField(populate_from='title')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='recipe_posts'
     )
