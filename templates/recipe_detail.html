@@ -35,11 +35,11 @@
                 <strong>Baking-time:</strong>
                 <p>{{ recipe.baking_time }}</p>
                 <strong>Ingredients:</strong>
-                <p>{{ recipe.ingredients }}</p>
+                {{ recipe.ingredients | safe }}
                 <strong>Special equipment:</strong>
                 <p>{{ recipe.special_equipment }}</p>
                 <strong>Bakers tip!</strong>
-                <p>{{ recipe.bakers_tip }}</p>
+                {{ recipe.bakers_tip | safe }}
                 <strong>Method:</strong>
                 {{ recipe.method | safe }}
 
