@@ -68,12 +68,14 @@ No issues with the HTML pages or CSS:
 
 ## Manual Testing
 
-The Website was tested on Samsung internet, Google Chrome, Firefox and Safari browsers. No functionality issues were noted. There is a styling issue with the comment/like count on smaller screens which I was unable to fix due to time constraints but again functionality is ok.
+The Website was tested on Samsung internet, Google Chrome and Firefox browsers. No functionality issues were noted. 
+
+There were two styling issues identified following these test, a known bug and a resolved bug. Please see issues.
 
 See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect.
 
-* Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome-mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet-mobile.jpg)
-* Tested on laptop with [Microsoft Edge](docs/testing/manualtesting/microsoftedge-laptop.png) and desktop with [Firefox](docs/testing/manualtesting/firefox-desktop.png).
+* Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome_mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet_mobile.jpg)
+* Tested on laptop with [Microsoft Edge](docs/testing/manualtesting/microsoftedge_laptop.png) and desktop with [Firefox](docs/testing/manualtesting/firefox_desktop.png).
 
 - - -
 
