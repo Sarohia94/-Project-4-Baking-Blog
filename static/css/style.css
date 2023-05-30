@@ -1,32 +1,38 @@
 /*Google Font*/
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Source+Serif+Pro:wght@300&display=swap');
 
+/*body font*/
 :root {
   --bs-body-font-family: 'Source Serif Pro', sans-serif;
 }
 
+/*navbar blog name font*/
 #title {
   font-weight: 600;
   font-size: 36px;
   font-family: 'Indie Flower', sans-serif;
 }
 
+/*blog name font on hero image background*/
 #s-title {
   font-weight: 500;
   font-size: 36px;
   font-family: 'Indie Flower', sans-serif;
 }
 
+/*tagline font on hero image background*/
 #tagline {
   font-size: 24px;
   color: #6B2737;
 }
 
+/*tagline font for user page to welcome user*/
 #s-tagline {
   font-size: 20px;
   color: #6B2737;
 }
 
+/*custom navbar styling*/
 .navbar-color {
   --bs-navbar-color: rgba(228, 253, 225);
   --bs-navbar-hover-color: #fff;
@@ -37,6 +43,7 @@
   --bs-navbar-toggler-border-color: rgba(107, 39, 55, 0.1);
 }
 
+/*hero image styling*/
 .image {
   background-color: #E4FDE1;
   background: linear-gradient(rgba(228, 253, 225, 0.6),
@@ -46,6 +53,7 @@
   display: flex;
 }
 
+/*box over hero image for s-title and tagline*/
 #cover-text {
   font-size: 130%;
   letter-spacing: 4px;
@@ -55,10 +63,12 @@
   padding: 20px;
 }
 
+/*backgroud styling for about me*/
 #card-background {
   background-color: rgba(244, 91, 105, .5);
 }
 
+/*custom styling for btns*/
 .btn-colour {
   --bs-btn-color: #fff;
   --bs-btn-bg: #0EB1D2;
@@ -77,25 +87,29 @@
 
 }
 
+/*styling likes*/
 .heart {
   color: #ff0000;
 }
 
+/*styling for like btns*/
 #no-border {
   border: none;
   background-color: white
 }
 
+/*styling for text*/
 .text-color {
   color: #9046CF;
 }
 
-.text-decoration-underline {
-  text-decoration: underline !important;
+/*styling for post/recipe names*/
+.text-decoration {
   color: #9046CF;
   font-weight: bolder;
 }
 
+/*custom styling for footer*/
 .bg-dark {
   --bs-bg-opacity: 1;
   background-color: rgba(107, 39, 55, var(--bs-bg-opacity)) !important;

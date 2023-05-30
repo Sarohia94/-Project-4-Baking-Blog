@@ -4,18 +4,27 @@ from django_summernote.widgets import SummernoteWidget
 
 
 class PostCommentForm(forms.ModelForm):
+    """
+    Form to submit a post comment
+    """
     class Meta:
         model = PostComment
         fields = ('body',)
 
 
 class RecipeCommentForm(forms.ModelForm):
+    """
+    Form to submit a recipe comment
+    """
     class Meta:
         model = RecipeComment
         fields = ('body',)
 
 
 class RecipeForm(forms.ModelForm):
+    """
+    Form to add a recipe
+    """
     class Meta:
         model = Recipe
 

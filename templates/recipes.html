@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="carousel">
+                            <div class="image-container">
                                 {% if "placeholder" in recipe.featured_image.url %}
                                 <img class="card-img-top"
                                     src="{% static 'images/default_post_image.jpg' %}"
@@ -32,8 +32,8 @@
                                     <p>Author: {{ recipe.author }}</p>
                                 </div>
                             </div>
-                            <h2 class="card-title h4 text-decoration-underline">{{ recipe.recipe_name }}</h2>
-                            <p class="card-text">{{ recipe.descripton|truncatechars:100 }}</p>
+                            <h2 class="card-title h4 text-decoration">{{ recipe.recipe_name }}</h2>
+                            <p class="card-text">{{ recipe.description | safe }}</p>
                             <a class="btn btn-colour" href="{% url 'recipe_detail' recipe.slug %}">Read more →</a>
                             <hr>
                             <p class="card-text text-muted h6">{{ recipe.created_on}} 

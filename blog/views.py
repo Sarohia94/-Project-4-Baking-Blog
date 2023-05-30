@@ -10,6 +10,9 @@ from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
+    """
+    Render the blog home page
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
@@ -17,6 +20,9 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
+    """
+    Render the blog post detail page
+    """
     def get(self, request, slug):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -62,6 +68,9 @@ class PostDetail(View):
 
 
 class RecipeList(generic.ListView):
+    """
+    Render the recipe page
+    """
     model = Recipe
     queryset = Recipe.objects.all().order_by("-created_on")
     template_name = "recipes.html"
@@ -69,6 +78,9 @@ class RecipeList(generic.ListView):
 
 
 class RecipeDetail(View):
+    """
+    Render the recipe detail page
+    """
     def get(self, request, slug):
         queryset = Recipe.objects.all()
         recipe = get_object_or_404(queryset, slug=slug)
@@ -114,6 +126,10 @@ class RecipeDetail(View):
 
 
 class PostLike(View):
+    """
+    When a post is liked/unliked, the slug is noted
+    and the like/unlike is counted. Total likes displayed.
+    """
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 
@@ -125,6 +141,10 @@ class PostLike(View):
 
 
 class RecipeLike(View):
+    """
+    When a recipe is liked/unliked, the slug is noted
+    and the like/unlike is counted. Total likes displayed.
+    """
     def post(self, request, slug):
         recipe = get_object_or_404(Recipe, slug=slug)
 
@@ -136,11 +156,18 @@ class RecipeLike(View):
 
 
 class User(generic.ListView):
+    """
+    Render the user page
+    """
     model = Recipe
     template_name = "user_page.html"
 
 
 class AddRecipe(LoginRequiredMixin, CreateView):
+    """
+    Add recipe only when user is logged in,
+    success message once submitted.
+    """
     model = Recipe
     form_class = RecipeForm
     template_name = "add_recipe.html"
@@ -154,6 +181,10 @@ class AddRecipe(LoginRequiredMixin, CreateView):
 
 
 class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    Edit recipe user has created, only when they are logged in,
+    success message once updated.
+    """
     model = Recipe
     form_class = RecipeForm
     template_name = "edit_recipe.html"
@@ -168,6 +199,10 @@ class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class DeleteRecipe(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    Delete recipe user has created, only when they are logged in,
+    success message once updated.
+    """
     model = Recipe
     template_name = "delete_recipe.html"
     success_url = "/recipes/"

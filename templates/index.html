@@ -29,7 +29,7 @@
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="carousel">
+                            <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
                                     src="{% static 'images/default_post_image.jpg' %}"
@@ -40,8 +40,8 @@
                                 {% endif %}
                                 <div class="small text-muted">Author: {{ post.author }}</div>
                             </div>
-                            <h2 class="card-title h4 text-decoration-underline">{{ post.title }}</h2>
-                            <p class="card-text">{{ post.excerpt|truncatechars:100 }}</p>
+                            <h2 class="card-title h4 text-decoration">{{ post.title }}</h2>
+                            <p class="card-text">{{ post.excerpt | truncatechars:150 }}</p>
                             <a class="btn btn-colour" href="{% url 'post_detail' post.slug %}">Read more →</a>
                             <hr>
                             <p class="card-text text-muted h6">{{ post.created_on}} 
