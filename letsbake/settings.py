@@ -30,8 +30,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DEVELOPMENT", default=0))
 
-ALLOWED_HOSTS = ['p4-baking-blog.herokuapp.com', 'localhost']
+# Load summernote editor
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+ALLOWED_HOSTS = ['p4-baking-blog.herokuapp.com', 'localhost']
 
 # Application definition
 
