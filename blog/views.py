@@ -149,6 +149,7 @@ class AddRecipe(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.recipe_name)
+        messages.success(self.request, "Your recipe has been submitted!")
         return super(AddRecipe, self).form_valid(form)
 
 
@@ -157,6 +158,10 @@ class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = RecipeForm
     template_name = "edit_recipe.html"
     success_url = "/recipes/"
+
+    def form_valid(self, form):
+        messages.success(self.request, "Your recipe has been updated!")
+        return super(EditRecipe, self).form_valid(form)
 
     def test_func(self):
         return self.request.user == self.get_object().author
