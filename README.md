@@ -302,7 +302,7 @@ Hovering over the links will change the color from #E4FDE1 to white, identical t
 
 ![Sixth feature](docs/features/home.png)
 
-7. Admin blog posts will try to give the user some knowledge and general advise relating to baker based on experience.
+7. Admin blog posts will try to give the user some knowledge and general advice relating to baking based on experience.
 
 ![Seventh feature](docs/features/blog_post.png)
 
@@ -321,7 +321,7 @@ Hovering over the links will change the color from #E4FDE1 to white, identical t
 
 11. There is a comment prompt to user to sign up or login (links in place) if they want to engage with the post.
 
-![Eleventh feature](docs/features/leave_comment.png)
+![Eleventh feature](docs/features/comment_prompt.png)
 
 12. Recipe posts have CRUD functionality from the recipe post you are able to edit or delete the recipe if you are the author.
 
@@ -409,14 +409,14 @@ See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TE
 HTML, CSS, Javascript and Python.
 
 ### Django 
-Gunicorn - as the server for Heroku.
-Cloudinary - to host the static files and media for the site.
-Dj_database_url - to parse the database URL from the environment variables in Heroku.
-Psycopg2 - as an adaptor for Python and PostgreSQL databases.
-Summernote - as a text editor.
-Allauth - for authentication, registration, account management.
-Crispy forms - provides a tag and filter that lets you quickly render forms
-Autoslug - improved slug field which can automatically populate itself from another field and preserve uniqueness of the value.
+* Gunicorn - as the server for Heroku.
+* Cloudinary - to host the static files and media for the site.
+* Dj_database_url - to parse the database URL from the environment variables in Heroku.
+* Psycopg2 - as an adaptor for Python and PostgreSQL databases.
+* Summernote - as a text editor.
+* Allauth - for authentication, registration, account management.
+* Crispy forms - provides a tag and filter that lets you quickly render forms
+* Autoslug - improved slug field which can automatically populate itself from another field and preserve uniqueness of the value.
 
 ### Frameworks, Libraries & Programs Used
 * [Am I responsive?](https://ui.dev/amiresponsive) - to show game across a range of devices.
@@ -482,12 +482,12 @@ The project is deployed using Heroku.
 
 ### Update Heroku Config Vars
 Add the following Config Vars in Heroku:
-SECRET_KEY = value
-CLOUDINARY_URL = URL
-PORT = 8000
-DISABLE_COLLECTSTATIC = 1
-HEROKU_POSTGRESQL_OLIVE_URL = URL
-DATABASE_URL = URL
+* SECRET_KEY = value
+* CLOUDINARY_URL = URL
+* PORT = 8000
+* DISABLE_COLLECTSTATIC = 1
+* HEROKU_POSTGRESQL_OLIVE_URL = URL
+* DATABASE_URL = URL
 
 ### Deploy
 

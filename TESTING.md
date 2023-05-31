@@ -26,11 +26,11 @@ Solution: Found a post on slack advising to add a summernote config dictionary i
 
 ![Issue autoslug](docs/testing/issues/issue_autoslug.png)
 
-Solution: With some help from tutor support, it was identified from admin prepopulated_fields needed to be removed as autoslug does this already in the background and the title below should have recipe_name in models.
+Solution: With some help from tutor support, it was identified from admin prepopulated_fields needed to be removed as autoslug does this already in the background and the title should have recipe_name in models.
 
 ![Fix autoslug](docs/testing/issues/fix_autoslug.png)
 
-3. Bug: When first deploying to Heroku now the deployed site was not rendering the hero image. Image was called in the cloudinary images folder in CSS. Tutor support kindly identified and explained When you collect static, Cloudinary will collect all images in the static folder as well. However the image seems to be throwing a 404 on the deployed app, so to check this was collected correctly on Cloudinary. When comparing the cloudinary url to the css url the app seemed to have been looking for a jpeg, but Cloudinary has a jpg file.
+3. Bug: When first deploying to Heroku now the deployed site was not rendering the hero image. Image was called in the cloudinary images folder in CSS. Tutor support kindly identified and explained when you collect static, Cloudinary will collect all images in the static folder as well. However the image seems to be throwing a 404 on the deployed app, so we need to check this was collected correctly on Cloudinary. When comparing the cloudinary url to the css url the app seemed to have been looking for a jpeg, but Cloudinary has a jpg file.
 
 ![Issue cloudinary](docs/testing/issues/issue_cloudinary.png)
 
