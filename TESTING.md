@@ -69,9 +69,11 @@ No issues with the HTML pages or CSS:
 
 ## Manual Testing
 
-The Website was tested on Samsung internet, Google Chrome and Firefox browsers. No functionality issues were noted. 
+* BDD, or Behaviour Driven Development, is the process used to test user stories in a non-technical way, allowing anyone to test the features of an app. User stories as documented in the readme all pass the acceptance criteria set on the Kanban board. So this has been acheived.
 
-There were two styling issues identified following these test, a known bug and a resolved bug. Please see issues.
+* The Website was tested on Samsung internet, Google Chrome and Firefox browsers. No functionality issues were noted. 
+
+* There were two styling issues identified following these test, a known bug and a resolved bug. Please see issues.
 
 See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect.
 
@@ -95,14 +97,14 @@ See below tests carried out over different browsers and devices. Responsive desi
 - - -
 
 ## Lighthouse Testing
-* [Home](docs/testing)
-* [Post detail](docs/testing)
-* [Recipe detail](docs/testing)
-* [Recipes](docs/testing)
-* [Sign up](docs/testing)
-* [Login](docs/testing)
-* [Logout](docs/testing)
-* [User page](docs/testing)
+* [Home](docs/testing/lighthouse/desktop_home.png)
+* [Post detail](docs/testing/lighthouse/desktop_post.png)
+* [Recipe detail](docs/testing/lighthouse/desktop_recipe_post.png)
+* [Recipes](docs/testing/lighthouse/desktop_recipes.png)
+* [Sign up](docs/testing/lighthouse/desktop_signup.png)
+* [Login](docs/testing/lighthouse/desktop_login.png)
+* [Logout](docs/testing/lighthouse/desktop_logout.png)
+* [User page](docs/testing/lighthouse/desktop_user_page.png)
 
 - - -
 
