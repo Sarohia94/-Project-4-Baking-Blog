@@ -110,9 +110,63 @@ See below tests carried out over different browsers and devices. Responsive desi
 
 ## User Validation Testing
 
-1. 
+1. If user is not logged in they are unable to access / view "leave a comment" or like button.
 
-![First user validtaion test](docs/testing/)
+![user validtaion test #1](docs/testing/uservalidation/validation_one.png)
 
-   User input is validated 
+2. User input is validated if a logged in user tries to submit an empty comment they see the below message.
+
+![user validtaion test #2](docs/testing/uservalidation/validation_two.png)
+
+3. User input is validated when a user logs out.
+
+![user validtaion test #3](docs/testing/uservalidation/validation_three.png)
+
+4. User input is validated when a user logs in.
+
+![user validtaion test #4](docs/testing/uservalidation/validation_four.png)
+
+5. User input is validated when a user signs up.
+
+![user validtaion test #5](docs/testing/uservalidation/validation_five.png)
+
+6. User input is validated when incomplete forms are submitted for login and sign up.
+
+![user validtaion test #6a](docs/testing/uservalidation/validation_six_a.png)
+
+![user validtaion test #6b](docs/testing/uservalidation/validation_six_b.png)
+
+7. User input is validated when password is too common when signing up or incorrect password when logging in.
+
+![user validtaion test #7a](docs/testing/uservalidation/validation_seven_a.png)
+
+![user validtaion test #7b](docs/testing/uservalidation/validation_seven_b.png)
+
+8. User input is validated when username is too short, exists already when signing up or incorrect password when logging in.
+
+![user validtaion test #8a](docs/testing/uservalidation/validation_eight_a.png)
+
+![user validtaion test #8b](docs/testing/uservalidation/validation_eight_b.png)
+
+![user validtaion test #8c](docs/testing/uservalidation/validation_eight_c.png)
+
+9. User input is validated when adding a recipe.
+
+![user validtaion test #9](docs/testing/uservalidation/validation_nine.png)
+
+10. User input is validated when editing a recipe.
+
+![user validtaion test #10](docs/testing/uservalidation/validation_ten.png)
+
+11. User input is validated when deleting a recipe.
+
+![user validtaion test #11](docs/testing/uservalidation/validation_eleven.png)
+
+12. User input is validated when comment is awaiting approval.
+
+![user validtaion test #12](docs/testing/uservalidation/validation_twelve.png)
+
+13. User input is validated when comment is liked.
+
+![user validtaion test #12](docs/testing/uservalidation/validation_thirteen.png)
 
