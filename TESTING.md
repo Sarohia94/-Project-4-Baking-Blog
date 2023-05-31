@@ -16,21 +16,58 @@ Return to [README](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/
 
 ### Solved Bugs
 
-1. 
+1. Bug: On mobile summernote text editor was oversplliing the add recipe form.
 
-![Issue](docs/testing/issues/)
+Solution: Found a post on slack advising to add a summernote config dictionary in the settings file which can be styled using a bootstrap theme.
 
+![Fix summernote](docs/testing/issues/fix_summernote.jpg)
 
-![Fix](docs/testing/issues/)
+2. Bug: I had a slug error when submitting a post with the same name as another post. I wanted to account for this where unique users may submit there own recipes but with the same name then the slug field should iterate and the post should open with a unique slug. The problem was after installing autoslug and updating models when I tested this I was able to add posts with the same name but when I went to open post then I got a 505 error.
 
-2. 
+![Issue autoslug](docs/testing/issues/issue_autoslug.png)
 
-3. 
+Solution: With some help from tutor support, it was identified from admin prepopulated_fields needed to be removed as autoslug does this already in the background and the title below should have recipe_name in models.
+
+![Fix autoslug](docs/testing/issues/fix_autoslug.png)
+
+3. Bug: When first deploying to Heroku now the deployed site was not rendering the hero image. Image was called in the cloudinary images folder in CSS. Tutor support kindly identified and explained When you collect static, Cloudinary will collect all images in the static folder as well. However the image seems to be throwing a 404 on the deployed app, so to check this was collected correctly on Cloudinary. When comparing the cloudinary url to the css url the app seemed to have been looking for a jpeg, but Cloudinary has a jpg file.
+
+![Issue cloudinary](docs/testing/issues/issue_cloudinary.png)
+
+Solution: The absolute url was used in the CSS file, rather than the relative version. So, the url set by Cloudinary, rather than rendering it from the relative file path. Once added/committed/pushed this rendered ok.
+
+4. Bug: As I was testing, adding recipes I found that suddenly when I went to click on recipes link in the navbar, I would get the below error.
+
+![Issue recipe link](docs/testing/issues/issue_slug.png)
+
+Solution: With help from tutor support it was explained we need to override the save method if there is no slug, then it should be taking the title, replacing all spaces with hyphens in order to make it url friendly. From [LearnDjango](https://learndjango.com/tutorials/django-slug-tutorial). This fixed the issue.
+
+5. Bug: Issue with RecipeComments model, when I submit a comment I get an error message directing me to line 70 of my views.py file stating there is no recipe_comments attribute. So it seemed recipe_comments wasn't made or connected to Recipe. 
+
+![Issue recipe comments](docs/testing/issues/issue_recipe_post.png)
+
+Solution: With troubleshooting help from tutorsupport it became apparent in the admin, recipe comments was being tied to the post instead, not recipes. Code was amended to fix below to refer to recipe and not post in the models and admin files. 
+
+![Fix recipe comments](docs/testing/issues/issue_recipe_comment.png)
+
+The follow up problem was when making migrations the below error was displayed. Tutorsupport advised due to the database already having existing information and we're making quite a big change here by asking recipecomment to use recipe instead of post, we would have to to wipe the previous migrations due to the conflicting information. This removed all data in the admin so certain recipes had to be redone. This was a big learning curve. 
+
+![Issue migration](docs/testing/issues/issue_migration.png)
+
+This was done by deleting all migration files (under blog directory) that start with numbers (excluding the __init__.py), then at ElephantSQL, click the Reset button on the database dashboard. After that, was able to makemigrations and migrate in the workspace again as normal and the issue was sorted. A new superuser had to be created.  
 
 
 ### Known Bugs
 
-1. 
+To the best of my knowledge below are the known bugs I have identified.
+
+1. Bug: On mobiles or smaller screens the like and count comments are not displayed next to the icons but below. This does not affect functionality but its not great user experience. This picked up late so due to time contraints was unable to resolve.
+
+![Issue unresolved](docs/testing/issues/mobile_issue.jpg)
+
+2. Bug: Image dimensions are not fixed so if different image sizes are used the cards are not uniform on larger screens. This does not affect functionality but its not the best user experience. I tried variations of setting the width and height but was unable to find a solution without compromising image quality and responsiveness on varying screen sizes.
+
+![Issue unresolved #2](docs/testing/issues/issue_image_sizes.png)
 
 - - -
 
